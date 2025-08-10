@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@font-face {
+    font-family: 'CentralNo2';
+    /* Choose a descriptive name for your font */
+    src: url('./assets/fonts/CentraNo2-Light.ttf') format('truetype');
+    font-weight: normal;
+    /* Adjust as needed for different weights */
+    font-style: normal;
+    /* Adjust as needed for italics */
+}
+
+ body {
+      font-family: 'CentralNo2', sans-serif; /* Apply globally or to specific selectors */
+    }

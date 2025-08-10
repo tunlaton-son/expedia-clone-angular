@@ -1,0 +1,46 @@
+<div class="w-full rounded-[16px] border border-[#dfe0e4] min-h-[250px] h-auto">
+    <div class="w-full h-auto">
+        <ul class="w-full flex flex-row h-[110px] items-center justify-center border-b border-b-[#dfe0e4] ">
+            <li (click)="onClickUpdateSearchType('Stays')"
+                [class]="'lg:px-[24px] cursor-pointer lg:w-[96px] w-full h-full flex flex-col justify-end text-center' + (selectedSearchType === 'Stays' ? ' shadow-[inset_0_-2px_0_0_#1668e3]' : ' hover:shadow-[inset_0_-2px_0_0_#191e3b]')">
+                <a class="w-full h-full flex flex-col justify-end">
+                    <img src="./icons/stay.svg" class="self-center mt-[15px] w-[48px] h-[48px]" />
+                    <span class="my-[12px] text-[14px] font-bold">Stays</span>
+                </a>
+            </li>
+            <li (click)="onClickUpdateSearchType('Flights')"
+                [class]="'lg:px-[24px] cursor-pointer lg:w-[96px] w-full h-full flex flex-col justify-end text-center' + (selectedSearchType === 'Flights' ? ' shadow-[inset_0_-2px_0_0_#1668e3]' : ' hover:shadow-[inset_0_-2px_0_0_#191e3b]')">
+                <a class="w-full h-full flex flex-col justify-end">
+                    <img src="./icons/flights.svg" class="self-center mt-[15px] w-[48px] h-[48px]" />
+                    <span class="my-[12px] text-[14px] font-bold">Flights</span>
+                </a>
+            </li>
+            <li (click)="onClickUpdateSearchType('Cars')"
+                [class]="'lg:px-[24px] cursor-pointer lg:w-[96px] w-full h-full flex flex-col justify-end text-center' + (selectedSearchType === 'Cars' ? ' shadow-[inset_0_-2px_0_0_#1668e3]' : ' hover:shadow-[inset_0_-2px_0_0_#191e3b]')">
+                <a class="w-full h-full flex flex-col justify-end">
+                    <img src="./icons/car.svg" class="self-center mt-[15px] w-[48px] h-[48px]" />
+                    <span class="my-[12px] text-[14px] font-bold">Cars</span>
+                </a>
+            </li>
+            <li (click)="onClickUpdateSearchType('Packages')"
+                [class]="'lg:px-[24px] cursor-pointer lg:w-[96px] w-full h-full flex flex-col justify-end text-center' + (selectedSearchType === 'Packages' ? ' shadow-[inset_0_-2px_0_0_#1668e3]' : ' hover:shadow-[inset_0_-2px_0_0_#191e3b]')">
+                <a class="w-full h-full flex flex-col justify-end">
+                    <img src="./icons/packages.svg" class="self-center mt-[15px] w-[48px] h-[48px]" />
+                    <span class="my-[12px] text-[14px] font-bold">Packages</span>
+                </a>
+            </li>
+            <li (click)="onClickUpdateSearchType('Thingstodo')"
+                [class]="'lg:px-[24px] cursor-pointer lg:w-fit w-full h-full flex flex-col justify-end text-center' + (selectedSearchType === 'Thingstodo' ? ' shadow-[inset_0_-2px_0_0_#1668e3]' : ' hover:shadow-[inset_0_-2px_0_0_#191e3b]')">
+                <a class="w-full h-full flex flex-col justify-end">
+                    <img src="./icons/things.svg" class="self-center mt-[15px] w-[48px] h-[48px]" />
+                    <span class="my-[12px] text-[14px] font-bold">Things to do</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="w-full h-auto">
+        @if(selectedSearchType == 'Flights'){
+            <app-flight-search></app-flight-search>
+        }
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="w-full p-[24px]">
+    <div class="w-full h-auto flex flex-row items-center">
+        <ul class="w-fit flex flex-row h-auto border-b border-b-[#dfe0e4] ">
+            <li (click)="onClickUpdateDestinationType('return')"
+                [class]="'px-[16px] cursor-pointer w-fit h-full flex flex-col justify-end text-center' + (destinationType === 'return' ? ' shadow-[inset_0_-2px_0_0_#1668e3]' : ' hover:shadow-[inset_0_-2px_0_0_#191e3b]')">
+                <a class="w-full h-full flex flex-col justify-end">
+                    <span class="my-[12px] text-[14px] font-bold">Return</span>
+                </a>
+            </li>
+            <li (click)="onClickUpdateDestinationType('oneway')"
+                [class]="'px-[16px] cursor-pointer w-fit h-full flex flex-col justify-end text-center' + (destinationType === 'oneway' ? ' shadow-[inset_0_-2px_0_0_#1668e3]' : ' hover:shadow-[inset_0_-2px_0_0_#191e3b]')">
+                <a class="w-full h-full flex flex-col justify-end">
+                    <span class="my-[12px] text-[14px] font-bold">One-way</span>
+                </a>
+            </li>
+            <li (click)="onClickUpdateDestinationType('multicity')"
+                [class]="'px-[16px] cursor-pointer w-fit h-full flex flex-col justify-end text-center' + (destinationType === 'multicity' ? ' shadow-[inset_0_-2px_0_0_#1668e3]' : ' hover:shadow-[inset_0_-2px_0_0_#191e3b]')">
+                <a class="w-full h-full flex flex-col justify-end">
+                    <span class="my-[12px] text-[14px] font-bold">Multi-city</span>
+                </a>
+            </li>
+        </ul>
+        <app-dropdown [items]="dropdownItems" (selectedItemEvent)="onChangeTravelClass($event)"></app-dropdown>
+    </div>
+    @if(destinationType == 'return'){
+    <div [class]="'mt-[24px] w-full h-auto grid grid-cols-1 lg:grid-cols-9  gap-x-2 gap-y-2'">
+        <div class="lg:col-span-4 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-2">
+                <div class="lg:relative w-full h-auto" >
+                   
+                 <app-input #leavingFromInput (click)="$event.stopPropagation();onToggleLeavingFrom()" cssClass="w-full"
+                        [placeHolder]="getLabel(leavingFromSearchBox.selectedItem)" icon="./icons/marker.svg" type="button"></app-input>
+                 <app-search-box #leavingFromSearchBox label="Leaving from" (searchEvent)="onSearchAirport($event)" [searchItem]="searchItem$ | async"></app-search-box>
+                </div>
+                 
+                <button
+                    (click)="onSwapDestination()"
+                    [class.rotate-180]="isClicked"
+                    class="transform transition-all duration-300 p-[8px] rounded-full absolute z-[1] border border-[#818494] bg-white self-center items-center justify-center justify-self-end mr-2 lg:mr-0 lg:justify-self-center cursor-pointer hover:bg-[#ecf4fd]">
+                    <img src="./icons/swap.svg" class="w-[18px] h-[18px] rotate-180 lg:rotate-90 text-yellow-300" />
+                </button>
+                <div class="lg:relative w-full h-auto">
+                    <app-input #goingToInput [placeHolder]="getLabel(goingToSearchBox.selectedItem)" (click)="$event.stopPropagation();onToggleGoingTo()" cssClass="w-full" placeHolder="Going to" icon="./icons/marker.svg" type="button"></app-input>
+                    <app-search-box #goingToSearchBox label="Going to" (searchEvent)="onSearchAirport($event)" [searchItem]="searchItem$ | async"></app-search-box>
+                </div>
+            </div>
+        </div>
+        <div class="lg:col-span-2">
+            <app-input cssClass="w-full" placeHolder="14 Aug - 24 Sept" icon="./icons/calendar.svg" type="label"
+                label="Dates"></app-input>
+        </div>
+        <div class="lg:col-span-2">
+            <app-input cssClass="w-full" placeHolder="1 Traveller" icon="./icons/user.svg" type="label"
+                label="Travellers"></app-input>
+        </div>
+        <div class="lg:col-span-1">
+            <button
+                class="w-full h-[48px] cursor-pointer bg-[#1668e3] hover:bg-[#0e3672] text-center rounded-full text-white px-[16px] py-[4px]">
+                Search
+            </button>
+        </div>
+    </div>
+    }
+</div>

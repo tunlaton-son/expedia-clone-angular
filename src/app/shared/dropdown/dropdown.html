@@ -1,0 +1,8 @@
+<div class="w-fit h-auto">
+    <select #selectRef (change)="selectItem(selectRef.value)"
+        class="w-auto h-[32px] bg-[#ecf4fd] flex flex-row items-center rounded-2xl border-2 border-black cursor-pointer text-[12px] px-[12px]">
+        @for (item of items; track $index) {
+        <option>{{item}}</option>
+        }
+    </select>
+</div>

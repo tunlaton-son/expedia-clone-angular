@@ -1,0 +1,21 @@
+<div
+    class="w-auto h-auto relative cursor-pointer"
+>
+    <div class="absolute top-[10px] left-3 z-1">
+        <img
+            [src]="icon"
+            [class]="'w-[24px] h-[2]'"
+        />
+    </div>
+    @if(type === 'label'){
+        <span class="absolute top-1 left-11 text-[12px]">{{label}}</span>
+    }
+    <input
+        #inputRef
+        [type]="type !== 'text' ? 'button' : type"
+        [class]="'w-full h-[48px] cursor-pointer border border-[#818494] rounded-lg bg-white pl-[43px] pr-[11px] pb-[1px] focus:border-2 focus:border-[#1668e3] text-start '+ (cssClass) + (type === 'label' ? ' pt-5' : '')" 
+        [disabled]="disabled"
+        [placeholder]="placeHolder"
+        [value]="displayValue"
+    />
+</div>
